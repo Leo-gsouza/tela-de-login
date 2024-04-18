@@ -17,10 +17,12 @@
 /*=============================================VARIAVEIS==============================================*/
 :root{
     --verde: #49a09d;
+    --verde-hover: #408b89;
     --lilás: #5f2c82;
 
     --fonte-login: "Teko", system-ui;
     --fonte-paragrafo: "Roboto";
+    --fonte-botao: "Lalezar";
 }
 
 
@@ -45,7 +47,7 @@ main{
     height: 100vh;
 }
 
-section#login {
+main > section#login {/*Main é pai de section#login*/
     position: absolute;/*SECTION (absolute) está dentro de MAIN (relative) -> para ajustar a posição*/ 
     top: 50%;
     left: 50%;
@@ -53,7 +55,7 @@ section#login {
     overflow: hidden; /* Para esconder tudo que tiver fora da borda*/ 
 
     background-color: white;
-    width: 250px;
+    width: 280px;
     height: 500px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.411);
@@ -62,7 +64,7 @@ section#login {
     transition-timing-function: ease;
 }
 
-section#login > div#imagem{
+section#login > div#imagem{/*Section#login é pai de div#imagem , div#formulario*/
     display: block;
     background: #5f2c82 url('../jpeg/login.jpg') center center no-repeat;
     background-size: cover;
@@ -74,7 +76,7 @@ section#login > div#formulario{
     padding: 10px;
 }
 
-section#login > div#formulario > h1{
+div#formulario > h1{/*Div#formulario é pai de h1, p, form*/
     text-align: center;
     text-transform: uppercase;
     font-family: var(--fonte-login);
@@ -84,8 +86,66 @@ section#login > div#formulario > h1{
     text-shadow: 0px 0px 10px rgb(130, 255, 130);
 }
 
-section#login > div#formulario > p{
+div#formulario > p{
     font-family: var(--fonte-paragrafo);
     text-align: justify;
     padding: 7px;
+}
+
+div#formulario > form{
+    margin: 3px;
+}
+
+form > div.campo{/*Form é pai de div.campo, input[type=submit], a.botao */
+    background-color: var(--lilás);
+    padding: 6px 2px;
+    margin: 5px 0px;
+    border-radius: 5px;
+}
+
+div.campo > label{/* div.campo é pai de span, label, input[type=email], input[type=password] */
+    display: none;
+}
+
+form > input[type=submit]{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+    height: 30px;
+
+    background-color: var(--verde);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: var(--fonte-botao);
+    font-size: 1.1em;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+form > input[type=submit]:hover{
+    background-color: var(--verde-hover);  
+}
+
+form > a.botao{
+    width: 80%;
+    height: 30px;
+    margin: auto;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: black;
+}
+
+form > a.botao:hover{
+    color: var(--lilás);
+    font-weight: bold;
+}
+
+a.botao > span{/* a.botao é pai de span */
+    font-size: 1.1em;
+    
 }
